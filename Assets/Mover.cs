@@ -1,21 +1,28 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Mover : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-    [SerializeField] Transform target;
-    void Start()
+    void Update()
     {
+        if(Input.GetMouseButtonDown(0))
+        {
+            MoveToCursor();
+        }
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void MoveToCursor()
     {
-        GetComponent<NavMeshAgent>().destination = target.position;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        bool didHit = Physics.Raycast(ray, out RaycastHit raycastHit);
+
+        if (didHit)
+        {
+            GetComponent<NavMeshAgent>().destination = raycastHit.point;
+        }
     }
 }
