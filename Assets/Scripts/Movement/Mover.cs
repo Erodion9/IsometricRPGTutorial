@@ -8,7 +8,7 @@ using RPG.Core;
 
 namespace RPG.Movement
 {
-    public class Mover : MonoBehaviour
+    public class Mover : MonoBehaviour, IAction
     {
         private NavMeshAgent navMeshAgent;
         void Update()
@@ -21,7 +21,7 @@ namespace RPG.Movement
             navMeshAgent = GetComponent<NavMeshAgent>();
         }
 
-        public void Stop()
+        public void Cancel()
         {
             navMeshAgent.isStopped = true;
         }
