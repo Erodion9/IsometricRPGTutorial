@@ -7,7 +7,7 @@ namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour
     {
-        [SerializeField] float weaponRange = 4f;
+        [SerializeField] float weaponRange = 3f;
         private Transform target;
         private Mover mover;
 
@@ -18,8 +18,9 @@ namespace RPG.Combat
 
         void Update()
         {
-            bool isInRange = Vector3.Distance(transform.position, target.position) < weaponRange;
-            if (target != null && !isInRange)
+            if (target == null) return;
+
+            if (target != null && !IsInRange())
             {
                 mover.MoveTo(target.position);
             }
@@ -28,9 +29,20 @@ namespace RPG.Combat
                 mover.Stop();
             }
         }
+
+        private bool IsInRange()
+        {
+            return Vector3.Distance(transform.position, target.position) < weaponRange;
+        }
+
         public void Attack(CombatTarget combatTarget)
         {
             this.target = combatTarget.transform;
+        }
+
+        public void Cancel()
+        {
+            this.target = null;
         }
     }
 }
