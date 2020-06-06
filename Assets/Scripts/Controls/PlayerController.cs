@@ -13,7 +13,6 @@ namespace RPG.Control
         {
             if (InteractWithCombat()) return;
             if (InteractWithMovement()) return;
-            print("unmovable dest.");
         }
 
         private bool InteractWithCombat()
