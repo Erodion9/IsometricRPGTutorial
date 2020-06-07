@@ -2700,6 +2700,11 @@ PrefabInstance:
       propertyPath: weaponRange
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1208662588295401921, guid: f343bb5a7cccdfc42b41936b55a6a6d5,
+        type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1345721420710490827, guid: f343bb5a7cccdfc42b41936b55a6a6d5,
         type: 3}
       propertyPath: m_Name
