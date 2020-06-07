@@ -1,5 +1,6 @@
 ﻿using RPG.Core;
 using RPG.Movement;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -49,6 +50,7 @@ namespace RPG.Combat
 
         void Hit()
         {
+            if (target == null) return;
             target.GetComponent<Health>().TakeDamage(weaponDamage);
         }
 
