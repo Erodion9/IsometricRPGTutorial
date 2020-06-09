@@ -1,5 +1,5 @@
 ﻿using RPG.Movement;
-using RPG.Combat;
+using RPG.Core;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,6 +19,11 @@ namespace RPG.Core
                 print("Cancelled: " + currentAction);
             }
             currentAction = action;
-        } 
+        }
+
+        public void CancelCurrentAction()
+        {
+            StartAction(null);
+        }
     }
 }
